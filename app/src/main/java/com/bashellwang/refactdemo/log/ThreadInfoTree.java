@@ -51,7 +51,8 @@ public class ThreadInfoTree extends Timber.DebugTree {
         }
 
         String threadName = Thread.currentThread().getName();
-        strList.add(String.format("%1$s%2$s%3$s%4$s",createStackElementTag(stackTrace[7]) ,"<" ,threadName ,">"));
+        long threadId = Thread.currentThread().getId();
+        strList.add(String.format("%1$s%2$s%3$s%4$s%5$s%6$s", createStackElementTag(stackTrace[7]), "<", threadName, " ", threadId, ">"));
         StringBuilder sb = new StringBuilder(":");
 //        sb.append(stackTrace[7].getClassName()).append(".")
 //                .append(stackTrace[7].getMethodName()).append("(").append(stackTrace[7].getFileName()).append(":").append(stackTrace[7].getLineNumber()).append(") ");

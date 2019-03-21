@@ -4,11 +4,19 @@ package com.bashellwang.refactdemo.storage.dbmodule.dbconfig;
  * Created by liang.wang on 2019/3/6.
  */
 public class DBConfigOption {
-    public String mDbName;
+    private String mDbName;
+
+    public String getDbName(){
+        return mDbName;
+    }
+
+    private DBConfigOption(Builder builder) {
+        mDbName = builder.dbName;
+    }
 
     public static final class Builder {
 
-        public String dbName;
+        private String dbName;
 
         public Builder setDbName(String dbName) {
             this.dbName = dbName;
@@ -16,9 +24,7 @@ public class DBConfigOption {
         }
 
         public DBConfigOption build() {
-            DBConfigOption configOption = new DBConfigOption();
-            configOption.mDbName = dbName;
-            return configOption;
+            return new DBConfigOption(this);
         }
     }
 }

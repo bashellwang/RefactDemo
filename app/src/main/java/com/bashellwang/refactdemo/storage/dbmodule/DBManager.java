@@ -35,7 +35,7 @@ public class DBManager {
         } else {
             mDataBase = DaoManager.getInstance();
         }
-        mDataBase.init(context, config.mDbName);
+        mDataBase.init(context, config.getDbName());
     }
 
     public IDataBase getmDataBase() {
