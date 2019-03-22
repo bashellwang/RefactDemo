@@ -13,14 +13,34 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
+
+    signingConfigs {
+        debug {
+            storeFile file('../key/android.jks')
+            storePassword 'android'
+            keyAlias 'android'
+            keyPassword 'android'
+        }
         release {
-            minifyEnabled false
+            storeFile file('../key/android.jks')
+            storePassword 'android'
+            keyAlias 'android'
+            keyPassword 'android'
+        }
+    }
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+            buildConfigField('boolean', 'INTERNAL', 'true')
+        }
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
-    greendao{
+    greendao {
         schemaVersion 3// TODO 数据库升级使用 TODO
         daoPackage 'com.bashellwang.refactdemo.greendao'
         targetGenDir 'src/main/java'
