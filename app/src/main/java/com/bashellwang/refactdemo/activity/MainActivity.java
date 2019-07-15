@@ -10,9 +10,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.bashellwang.common.log.ALog;
 import com.bashellwang.refactdemo.App;
 import com.bashellwang.refactdemo.R;
-import com.bashellwang.refactdemo.log.ALog;
 
 import timber.log.Timber;
 
